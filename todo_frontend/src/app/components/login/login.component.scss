@@ -1,0 +1,41 @@
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+    
+    .login-card {
+      width: 100%;
+      max-width: 400px;
+      padding: 24px;
+      
+      h2 {
+        margin-bottom: 24px;
+        text-align: center;
+      }
+      
+      button {
+        width: 100%;
+        margin-top: 16px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+      }
+      
+      .register-link {
+        margin-top: 16px;
+        text-align: center;
+        font-size: 14px;
+        
+        a {
+          color: #4285f4;
+          text-decoration: none;
+          
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+}  

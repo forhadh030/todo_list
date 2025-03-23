@@ -1,0 +1,34 @@
+<div class="todo-item card">
+    <div class="todo-header">
+      <div class="todo-checkbox">
+        <input 
+          type="checkbox" 
+          [checked]="todo.completed" 
+          (change)="onToggleCompleted()"
+          [id]="'todo-' + todo.id">
+        <label 
+          [for]="'todo-' + todo.id"
+          [class.completed]="todo.completed">
+          {{ todo.title }}
+        </label>
+      </div>
+      
+      <div class="todo-actions">
+        <button class="btn-secondary" (click)="toggleExpand()">
+          {{ isExpanded ? 'Hide' : 'Show' }} Details
+        </button>
+        <button class="btn-danger" (click)="onDeleteTodo()">Delete</button>
+      </div>
+    </div>
+    
+    <div *ngIf="isExpanded" class="todo-details">
+      <p *ngIf="todo.description">{{ todo.description }}</p>
+      <div class="todo-metadata">
+        <p><strong>Created:</strong> {{ formatDate(todo.createdAt) }}</p>
+        <p *ngIf="todo.updatedAt"><strong>Last Updated:</strong> {{ formatDate(todo.updatedAt) }}</p>
+        <p *ngIf="todo.completed && todo.completedAt">
+          <strong>Completed:</strong> {{ formatDate(todo.completedAt) }}
+        </p>
+      </div>
+    </div>
+</div>  

@@ -1,0 +1,22 @@
+.todo-form {
+    margin-bottom: 24px;
+
+    h2 {
+        margin-bottom: 16px;
+        color: #202124;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 500;
+    }
+
+    button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        min-width: 120px;
+    }
+}  

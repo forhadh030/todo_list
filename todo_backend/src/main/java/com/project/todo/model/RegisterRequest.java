@@ -10,18 +10,18 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class AuthRequest {
+public class RegisterRequest {
 
-    @NotBlank
+    @NotBlank(message = "Username is required")
     @Size(min = 3, max = 20)
     private String username;
 
-    @NotBlank
+    @NotBlank(message = "Email is required")
     @Size(max = 50)
     @Email
     private String email;
 
-    @NotBlank
+    @NotBlank(message = "Password is required")
     @Size(min = 6, max = 40)
     private String password;
 }

@@ -1,0 +1,48 @@
+<div class="container">
+    <h1>Todo List</h1>
+    
+    <div class="filter-buttons">
+      <button 
+        class="btn-secondary" 
+        [class.active]="filter === 'all'"
+        (click)="setFilter('all')">
+        All
+      </button>
+      <button 
+        class="btn-secondary" 
+        [class.active]="filter === 'active'"
+        (click)="setFilter('active')">
+        Active
+      </button>
+      <button 
+        class="btn-secondary" 
+        [class.active]="filter === 'completed'"
+        (click)="setFilter('completed')">
+        Completed
+      </button>
+    </div>
+    
+    <app-todo-form (todoAdded)="loadTodos()"></app-todo-form>
+    
+    <div *ngIf="loading" class="loading">
+      <div class="loading-spinner"></div>
+      <p>Loading todos...</p>
+    </div>
+    
+    <div *ngIf="error" class="error-message">
+      {{ error }}
+    </div>
+    
+    <div *ngIf="!loading && todos.length === 0" class="empty-state">
+      <p>No todos found. Add a new one to get started!</p>
+    </div>
+    
+    <div *ngIf="!loading && todos.length > 0" class="todo-list">
+      <app-todo-item 
+        *ngFor="let todo of todos" 
+        [todo]="todo"
+        (toggleCompleted)="toggleTodoCompleted(todo)"
+        (deleteTodo)="deleteTodo(todo.id!)">
+      </app-todo-item>
+    </div>
+</div>  
